@@ -11,6 +11,10 @@
 #import "v002CVPixelBufferImageProvider.h"
 #import "v002_MetadataMovie_PlayerPlugIn.h"
 
+#import <VideoToolbox/VideoToolbox.h>
+#import <VideoToolbox/VTProfessionalVideoWorkflow.h>
+
+
 #define	kQCPlugIn_Name				@"v002 Metadata Movie Player 1.0"
 #define	kQCPlugIn_Description		@"AVFoundation based movie player that supports Metavisual Metadata output oh snap!"
 
@@ -125,6 +129,9 @@
 	self = [super init];
 	if (self)
     {
+        
+        VTRegisterProfessionalVideoWorkflowVideoDecoders();
+
 //        playerVideoOutputQueue = dispatch_queue_create(NULL, NULL);
 
         player = [[AVPlayer alloc] init];
@@ -137,6 +144,12 @@
 //			[playerItemVideoOutput setDelegate:self queue:dispatch_get_main_queue()];
 		//	[playerItemVideoOutput requestNotificationOfMediaDataChangeWithAdvanceInterval:ADVANCE_INTERVAL_IN_SECONDS];
         }
+        
+        // nil grabs all available metadata - just do this shit for now because whatever man.
+        playerItemMetadataOutput = [[AVPlayerItemMetadataOutput alloc] initWithIdentifiers:nil];
+        [playerItemMetadataOutput setDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_SERIAL, 0)];
+        
+        self.latestMetadataDictionary = nil;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidPlayToEndTime:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 
@@ -211,6 +224,7 @@
         [player replaceCurrentItemWithPlayerItem:newItem];
         
         [[player currentItem] addOutput:playerItemVideoOutput];
+        [[player currentItem] addOutput:playerItemMetadataOutput];
         
         self.outputDuration = CMTimeGetSeconds([[player currentItem] duration]);
         
@@ -273,6 +287,8 @@
     else
         self.outputMovieDidEnd = NO;
     
+    self.outputMetadata = self.latestMetadataDictionary;
+    
 	return YES;
 }
 
@@ -302,5 +318,28 @@
 {
     
 }
+
+#pragma mark - AVPlayerItemMetadataOutputPushDelegate
+
+- (void)metadataOutput:(AVPlayerItemMetadataOutput *)output didOutputTimedMetadataGroups:(NSArray *)groups fromPlayerItemTrack:(AVPlayerItemTrack *)track
+{
+    NSMutableDictionary* metadataDictionary = [NSMutableDictionary dictionary];
+    
+    for(AVTimedMetadataGroup* group in groups)
+    {
+        for(AVMetadataItem* metadataItem in group.items)
+        {
+            NSString* key = metadataItem.identifier;
+            
+            id value = metadataItem.value;
+            
+            [metadataDictionary setObject:value forKey:key];
+            
+        }
+    }
+    
+    self.latestMetadataDictionary = metadataDictionary;
+}
+
 
 @end

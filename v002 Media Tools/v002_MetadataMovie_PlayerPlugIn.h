@@ -10,16 +10,17 @@
 #import <CoreVideo/CoreVideo.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface v002_MetadataMovie_PlayerPlugIn : QCPlugIn <AVPlayerItemOutputPullDelegate>
+@interface v002_MetadataMovie_PlayerPlugIn : QCPlugIn <AVPlayerItemOutputPullDelegate, AVPlayerItemMetadataOutputPushDelegate>
 {
     AVPlayer* player;
     AVPlayerItemVideoOutput* playerItemVideoOutput;
+    AVPlayerItemMetadataOutput* playerItemMetadataOutput;
     
     dispatch_queue_t playerVideoOutputQueue;
     
     BOOL movieDidEnd;
 }
-
+@property (copy) NSDictionary* latestMetadataDictionary;
 @property BOOL movieDidEnd;
 
 // output ports
