@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:v002 Media Tools.xcodeproj">
+      location = "self:MetadataReaderQC.xcodeproj">
    </FileRef>
 </Workspace>

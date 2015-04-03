@@ -10,7 +10,7 @@
 		1B3410AE15B38BB10035CA52 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410AD15B38BB10035CA52 /* Cocoa.framework */; };
 		1B3410B015B38BB10035CA52 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410AF15B38BB10035CA52 /* Quartz.framework */; };
 		1B3410BC15B38BB10035CA52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B3410BA15B38BB10035CA52 /* InfoPlist.strings */; };
-		1B3410BF15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3410BE15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.m */; };
+		1B3410BF15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3410BE15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m */; };
 		1B3410CA15B38D4F0035CA52 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410C915B38D4F0035CA52 /* OpenGL.framework */; };
 		1B3410CC15B38D6E0035CA52 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410CB15B38D6E0035CA52 /* AVFoundation.framework */; };
 		1B3410CE15B38D750035CA52 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410CD15B38D750035CA52 /* CoreVideo.framework */; };
@@ -19,23 +19,22 @@
 		1B3410E015B3AD9C0035CA52 /* v002CVPixelBufferImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3410D615B3AD9C0035CA52 /* v002CVPixelBufferImageProvider.m */; };
 		1B3410F215B3CDEB0035CA52 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410F115B3CDEB0035CA52 /* CoreMedia.framework */; };
 		1B3410F415B3CDF00035CA52 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410F315B3CDF00035CA52 /* Accelerate.framework */; };
-		1B51A9FA15B496FB0078C076 /* v002_Screen_CapturePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B51A9F915B496FB0078C076 /* v002_Screen_CapturePlugIn.m */; };
 		1B51A9FD15B4A9B50078C076 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B51A9FC15B4A9B50078C076 /* IOSurface.framework */; };
 		E2106F4E15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2106F4D15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B3410AA15B38BB10035CA52 /* v002 Media Tools.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "v002 Media Tools.plugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B3410AA15B38BB10035CA52 /* MetadataReaderQC.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetadataReaderQC.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B3410AD15B38BB10035CA52 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1B3410AF15B38BB10035CA52 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		1B3410B215B38BB10035CA52 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1B3410B315B38BB10035CA52 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1B3410B415B38BB10035CA52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1B3410B915B38BB10035CA52 /* v002 Media Tools-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "v002 Media Tools-Info.plist"; sourceTree = "<group>"; };
+		1B3410B915B38BB10035CA52 /* MetadataReaderQC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MetadataReaderQC-Info.plist"; sourceTree = "<group>"; };
 		1B3410BB15B38BB10035CA52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1B3410BD15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v002_Movie_PlayerPlugIn.h; sourceTree = "<group>"; };
-		1B3410BE15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v002_Movie_PlayerPlugIn.m; sourceTree = "<group>"; };
-		1B3410C015B38BB10035CA52 /* v002 Media Tools-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "v002 Media Tools-Prefix.pch"; sourceTree = "<group>"; };
+		1B3410BD15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = v002_MetadataMovie_PlayerPlugIn.h; sourceTree = "<group>"; };
+		1B3410BE15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v002_MetadataMovie_PlayerPlugIn.m; sourceTree = "<group>"; };
+		1B3410C015B38BB10035CA52 /* MetadataReaderQC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetadataReaderQC-Prefix.pch"; sourceTree = "<group>"; };
 		1B3410C915B38D4F0035CA52 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		1B3410CB15B38D6E0035CA52 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B3410CD15B38D750035CA52 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -46,8 +45,6 @@
 		1B3410DD15B3AD9C0035CA52 /* v002UniqueClassNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002UniqueClassNames.h; sourceTree = "<group>"; };
 		1B3410F115B3CDEB0035CA52 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1B3410F315B3CDF00035CA52 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		1B51A9F815B496FB0078C076 /* v002_Screen_CapturePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002_Screen_CapturePlugIn.h; sourceTree = "<group>"; };
-		1B51A9F915B496FB0078C076 /* v002_Screen_CapturePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002_Screen_CapturePlugIn.m; sourceTree = "<group>"; };
 		1B51A9FC15B4A9B50078C076 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
 		E2106F4C15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002IOSurfaceImageProvider.h; sourceTree = "<group>"; };
 		E2106F4D15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002IOSurfaceImageProvider.m; sourceTree = "<group>"; };
@@ -85,7 +82,7 @@
 		1B3410AB15B38BB10035CA52 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B3410AA15B38BB10035CA52 /* v002 Media Tools.plugin */,
+				1B3410AA15B38BB10035CA52 /* MetadataReaderQC.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,10 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				1B3410D215B3AD9C0035CA52 /* v002 Utilities */,
-				1B3410BD15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.h */,
-				1B3410BE15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.m */,
-				1B51A9F815B496FB0078C076 /* v002_Screen_CapturePlugIn.h */,
-				1B51A9F915B496FB0078C076 /* v002_Screen_CapturePlugIn.m */,
+				1B3410BD15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.h */,
+				1B3410BE15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m */,
 				1B3410B815B38BB10035CA52 /* Supporting Files */,
 			);
 			path = "v002 Media Tools";
@@ -131,9 +126,9 @@
 		1B3410B815B38BB10035CA52 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1B3410B915B38BB10035CA52 /* v002 Media Tools-Info.plist */,
+				1B3410B915B38BB10035CA52 /* MetadataReaderQC-Info.plist */,
 				1B3410BA15B38BB10035CA52 /* InfoPlist.strings */,
-				1B3410C015B38BB10035CA52 /* v002 Media Tools-Prefix.pch */,
+				1B3410C015B38BB10035CA52 /* MetadataReaderQC-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B3410A915B38BB10035CA52 /* v002 Media Tools */ = {
+		1B3410A915B38BB10035CA52 /* MetadataReaderQC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B3410C315B38BB20035CA52 /* Build configuration list for PBXNativeTarget "v002 Media Tools" */;
+			buildConfigurationList = 1B3410C315B38BB20035CA52 /* Build configuration list for PBXNativeTarget "MetadataReaderQC" */;
 			buildPhases = (
 				1B3410A515B38BB10035CA52 /* Sources */,
 				1B3410A615B38BB10035CA52 /* Frameworks */,
@@ -168,9 +163,9 @@
 			);
 			dependencies = (
 			);
-			name = "v002 Media Tools";
+			name = MetadataReaderQC;
 			productName = "v002 Media Tools";
-			productReference = 1B3410AA15B38BB10035CA52 /* v002 Media Tools.plugin */;
+			productReference = 1B3410AA15B38BB10035CA52 /* MetadataReaderQC.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +177,7 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = v002;
 			};
-			buildConfigurationList = 1B3410A315B38BB10035CA52 /* Build configuration list for PBXProject "v002 Media Tools" */;
+			buildConfigurationList = 1B3410A315B38BB10035CA52 /* Build configuration list for PBXProject "MetadataReaderQC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -194,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B3410A915B38BB10035CA52 /* v002 Media Tools */,
+				1B3410A915B38BB10035CA52 /* MetadataReaderQC */,
 			);
 		};
 /* End PBXProject section */
@@ -224,7 +219,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This shell script simply copies the built plug-in to \"~/Library/Graphics/Quartz Composer Plug-Ins\" and overrides any previous version at that location\n\nmkdir -p \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins\"\nrm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/v002 Media Tools.plugin\"\ncp -rf \"$BUILT_PRODUCTS_DIR/v002 Media Tools.plugin\" \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/\"\n";
+			shellScript = "# This shell script simply copies the built plug-in to \"~/Library/Graphics/Quartz Composer Plug-Ins\" and overrides any previous version at that location\n\nmkdir -p \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins\"\nrm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/MetadataReaderQC.plugin\"\ncp -rf \"$BUILT_PRODUCTS_DIR/MetadataReaderQC.plugin\" \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -233,9 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B3410BF15B38BB10035CA52 /* v002_Movie_PlayerPlugIn.m in Sources */,
+				1B3410BF15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m in Sources */,
 				1B3410E015B3AD9C0035CA52 /* v002CVPixelBufferImageProvider.m in Sources */,
-				1B51A9FA15B496FB0078C076 /* v002_Screen_CapturePlugIn.m in Sources */,
 				E2106F4E15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +270,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -298,7 +292,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -309,10 +303,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "v002 Media Tools/v002 Media Tools-Prefix.pch";
-				INFOPLIST_FILE = "v002 Media Tools/v002 Media Tools-Info.plist";
+				GCC_PREFIX_HEADER = "v002 Media Tools/MetadataReaderQC-Prefix.pch";
+				INFOPLIST_FILE = "v002 Media Tools/MetadataReaderQC-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MetadataReaderQC;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Debug;
@@ -323,10 +317,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "v002 Media Tools/v002 Media Tools-Prefix.pch";
-				INFOPLIST_FILE = "v002 Media Tools/v002 Media Tools-Info.plist";
+				GCC_PREFIX_HEADER = "v002 Media Tools/MetadataReaderQC-Prefix.pch";
+				INFOPLIST_FILE = "v002 Media Tools/MetadataReaderQC-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MetadataReaderQC;
 				WRAPPER_EXTENSION = plugin;
 			};
 			name = Release;
@@ -334,7 +328,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B3410A315B38BB10035CA52 /* Build configuration list for PBXProject "v002 Media Tools" */ = {
+		1B3410A315B38BB10035CA52 /* Build configuration list for PBXProject "MetadataReaderQC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B3410C115B38BB20035CA52 /* Debug */,
@@ -343,7 +337,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B3410C315B38BB20035CA52 /* Build configuration list for PBXNativeTarget "v002 Media Tools" */ = {
+		1B3410C315B38BB20035CA52 /* Build configuration list for PBXNativeTarget "MetadataReaderQC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1B3410C415B38BB20035CA52 /* Debug */,

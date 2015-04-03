@@ -22,8 +22,7 @@
 	<string>Copyright © 2012 vade &amp; bangnoise. All rights reserved.</string>
 	<key>QCPlugInClasses</key>
 	<array>
-		<string>v002_Movie_PlayerPlugIn</string>
-		<string>v002_Screen_CapturePlugIn</string>
+		<string>v002_MetadataMovie_PlayerPlugIn</string>
 	</array>
 </dict>
 </plist>

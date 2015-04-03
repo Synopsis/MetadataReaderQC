@@ -9,12 +9,12 @@
 // It's highly recommended to use CGL macros instead of changing the current context for plug-ins that perform OpenGL rendering
 #import <OpenGL/CGLMacro.h>
 #import "v002CVPixelBufferImageProvider.h"
-#import "v002_Movie_PlayerPlugIn.h"
+#import "v002_MetadataMovie_PlayerPlugIn.h"
 
-#define	kQCPlugIn_Name				@"v002 Movie Player 3.0"
-#define	kQCPlugIn_Description		@"AVFoundation based movie player - supports only Pro Res and h.264"
+#define	kQCPlugIn_Name				@"v002 Metadata Movie Player 1.0"
+#define	kQCPlugIn_Description		@"AVFoundation based movie player that supports Metavisual Metadata output oh snap!"
 
-@implementation v002_Movie_PlayerPlugIn
+@implementation v002_MetadataMovie_PlayerPlugIn
 
 @synthesize movieDidEnd;
 
@@ -27,6 +27,7 @@
 @dynamic inputColorCorrection;
 
 @dynamic outputImage;
+@dynamic outputMetadata;
 @dynamic outputPlayheadPosition;
 @dynamic outputDuration;
 @dynamic outputMovieTime;
@@ -74,6 +75,9 @@
     if([key isEqualToString:@"outputImage"])
         return  @{QCPortAttributeNameKey : @"Image"};
 
+    if([key isEqualToString:@"outputMetadata"])
+        return  @{QCPortAttributeNameKey : @"Metadata"};
+
     if([key isEqualToString:@"outputPlayheadPosition"])
         return  @{QCPortAttributeNameKey : @"Current Playhead Position"};
 
@@ -99,6 +103,7 @@
             @"inputVolume",
             @"inputColorCorrection",
             @"outputImage",
+            @"outputMetadata",
             @"outputPlayheadPosition",
             @"outputMovieTime",
             @"outputDuration",
@@ -160,7 +165,7 @@
 
 @end
 
-@implementation v002_Movie_PlayerPlugIn (Execution)
+@implementation v002_MetadataMovie_PlayerPlugIn (Execution)
 
 - (BOOL)startExecution:(id <QCPlugInContext>)context
 {

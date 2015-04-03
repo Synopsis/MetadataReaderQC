@@ -10,7 +10,7 @@
 #import <CoreVideo/CoreVideo.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface v002_Movie_PlayerPlugIn : QCPlugIn <AVPlayerItemOutputPullDelegate>
+@interface v002_MetadataMovie_PlayerPlugIn : QCPlugIn <AVPlayerItemOutputPullDelegate>
 {
     AVPlayer* player;
     AVPlayerItemVideoOutput* playerItemVideoOutput;
@@ -32,6 +32,7 @@
 @property (assign) BOOL inputColorCorrection;
 
 @property (assign) id <QCPlugInOutputImageProvider> outputImage;
+@property (copy) NSDictionary* outputMetadata;
 @property (assign) double outputPlayheadPosition;
 @property (assign) double outputDuration;
 @property (assign) double outputMovieTime;
