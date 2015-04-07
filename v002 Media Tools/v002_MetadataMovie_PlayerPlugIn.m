@@ -221,6 +221,9 @@
         
         AVPlayerItem* newItem = [AVPlayerItem playerItemWithURL:pathURL];
         
+        [[player currentItem] removeOutput:playerItemVideoOutput];
+        [[player currentItem] removeOutput:playerItemMetadataOutput];
+
         [player replaceCurrentItemWithPlayerItem:newItem];
         
         [[player currentItem] addOutput:playerItemVideoOutput];
@@ -306,6 +309,8 @@
 	if ([player currentItem] == [notification object])
 	{
         self.movieDidEnd = YES;
+        [player seekToTime:kCMTimeZero];
+        [player play];
 	}
 }
 
@@ -331,9 +336,20 @@
         {
             NSString* key = metadataItem.identifier;
             
-            id value = metadataItem.value;
-            
-            [metadataDictionary setObject:value forKey:key];
+            if([key isEqualToString:@"mdta/org.metavisual.somethingsomething"])
+            {
+                // Decode our metadata..
+                NSString* stringValue = (NSString*)metadataItem.value;
+                NSData* dataValue = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
+                id decodedJSON = [NSJSONSerialization JSONObjectWithData:dataValue options:kNilOptions error:nil];
+                [metadataDictionary setObject:decodedJSON forKey:key];
+            }
+            else
+            {
+                id value = metadataItem.value;
+                
+                [metadataDictionary setObject:value forKey:key];
+            }
             
         }
     }

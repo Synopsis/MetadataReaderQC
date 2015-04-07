@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6</key>
-		<string>../..v002%20Utilities/</string>
+		<string>../..v002%20Utilities</string>
 		<key>75C86E44247F52DE8D8D4BD096764DF34F95E668</key>
 		<string>../..</string>
 	</dict>
@@ -46,7 +46,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>v002%20Utilities</string>
+			<string>MetadataReaderQCv002%20Utilities</string>
 		</dict>
 	</array>
 </dict>
