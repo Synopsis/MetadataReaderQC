@@ -148,6 +148,7 @@
         // nil grabs all available metadata - just do this shit for now because whatever man.
         playerItemMetadataOutput = [[AVPlayerItemMetadataOutput alloc] initWithIdentifiers:nil];
         [playerItemMetadataOutput setDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_SERIAL, 0)];
+//        playerItemMetadataOutput.advanceIntervalForDelegateInvocation = 
         
         self.latestMetadataDictionary = nil;
         
@@ -342,7 +343,8 @@
                 NSString* stringValue = (NSString*)metadataItem.value;
                 NSData* dataValue = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
                 id decodedJSON = [NSJSONSerialization JSONObjectWithData:dataValue options:kNilOptions error:nil];
-                [metadataDictionary setObject:decodedJSON forKey:key];
+                if(decodedJSON)
+                    [metadataDictionary setObject:decodedJSON forKey:key];
             }
             else
             {
