@@ -21,6 +21,9 @@
 		1B3410F415B3CDF00035CA52 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3410F315B3CDF00035CA52 /* Accelerate.framework */; };
 		1B51A9FD15B4A9B50078C076 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B51A9FC15B4A9B50078C076 /* IOSurface.framework */; };
 		1B61BCF31ACF252D0013418D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B61BCF21ACF252D0013418D /* VideoToolbox.framework */; };
+		1BA68C661AD5D40F003B3CE9 /* BSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA68C641AD5D40F003B3CE9 /* BSONSerialization.m */; };
+		1BA68C741AD5D94C003B3CE9 /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA68C731AD5D94C003B3CE9 /* GZIP.m */; };
+		1BA68C761AD5D99E003B3CE9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA68C751AD5D99E003B3CE9 /* libz.dylib */; };
 		E2106F4E15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2106F4D15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,12 @@
 		1B3410F315B3CDF00035CA52 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		1B51A9FC15B4A9B50078C076 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
 		1B61BCF21ACF252D0013418D /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		1BA68C631AD5D40F003B3CE9 /* BSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSONSerialization.h; sourceTree = "<group>"; };
+		1BA68C641AD5D40F003B3CE9 /* BSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSONSerialization.m; sourceTree = "<group>"; };
+		1BA68C651AD5D40F003B3CE9 /* ObjectiveBSON-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectiveBSON-Prefix.pch"; sourceTree = "<group>"; };
+		1BA68C721AD5D94C003B3CE9 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
+		1BA68C731AD5D94C003B3CE9 /* GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZIP.m; sourceTree = "<group>"; };
+		1BA68C751AD5D99E003B3CE9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E2106F4C15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002IOSurfaceImageProvider.h; sourceTree = "<group>"; };
 		E2106F4D15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002IOSurfaceImageProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA68C761AD5D99E003B3CE9 /* libz.dylib in Frameworks */,
 				1B61BCF31ACF252D0013418D /* VideoToolbox.framework in Frameworks */,
 				1B51A9FD15B4A9B50078C076 /* IOSurface.framework in Frameworks */,
 				1B3410F415B3CDF00035CA52 /* Accelerate.framework in Frameworks */,
@@ -93,6 +103,7 @@
 		1B3410AC15B38BB10035CA52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BA68C751AD5D99E003B3CE9 /* libz.dylib */,
 				1B61BCF21ACF252D0013418D /* VideoToolbox.framework */,
 				1B3410F315B3CDF00035CA52 /* Accelerate.framework */,
 				1B3410CB15B38D6E0035CA52 /* AVFoundation.framework */,
@@ -122,6 +133,8 @@
 				1B3410D215B3AD9C0035CA52 /* v002 Utilities */,
 				1B3410BD15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.h */,
 				1B3410BE15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m */,
+				1BA68C621AD5D40F003B3CE9 /* BSON */,
+				1BA68C711AD5D94C003B3CE9 /* GZIP */,
 				1B3410B815B38BB10035CA52 /* Supporting Files */,
 			);
 			path = "v002 Media Tools";
@@ -150,6 +163,25 @@
 			);
 			path = "v002 Utilities";
 			sourceTree = SOURCE_ROOT;
+		};
+		1BA68C621AD5D40F003B3CE9 /* BSON */ = {
+			isa = PBXGroup;
+			children = (
+				1BA68C631AD5D40F003B3CE9 /* BSONSerialization.h */,
+				1BA68C641AD5D40F003B3CE9 /* BSONSerialization.m */,
+				1BA68C651AD5D40F003B3CE9 /* ObjectiveBSON-Prefix.pch */,
+			);
+			path = BSON;
+			sourceTree = "<group>";
+		};
+		1BA68C711AD5D94C003B3CE9 /* GZIP */ = {
+			isa = PBXGroup;
+			children = (
+				1BA68C721AD5D94C003B3CE9 /* GZIP.h */,
+				1BA68C731AD5D94C003B3CE9 /* GZIP.m */,
+			);
+			path = GZIP;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -232,8 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA68C741AD5D94C003B3CE9 /* GZIP.m in Sources */,
 				1B3410BF15B38BB10035CA52 /* v002_MetadataMovie_PlayerPlugIn.m in Sources */,
 				1B3410E015B3AD9C0035CA52 /* v002CVPixelBufferImageProvider.m in Sources */,
+				1BA68C661AD5D40F003B3CE9 /* BSONSerialization.m in Sources */,
 				E2106F4E15D1CEFA00B8AC60 /* v002IOSurfaceImageProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

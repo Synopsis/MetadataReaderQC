@@ -14,6 +14,8 @@
 #import <VideoToolbox/VideoToolbox.h>
 #import <VideoToolbox/VTProfessionalVideoWorkflow.h>
 
+#import "BSON/BSONSerialization.h"
+#import "GZIP/GZIP.h"
 
 #define	kQCPlugIn_Name				@"v002 Metadata Movie Player 1.0"
 #define	kQCPlugIn_Description		@"AVFoundation based movie player that supports Metavisual Metadata output oh snap!"
@@ -339,12 +341,29 @@
             
             if([key isEqualToString:@"mdta/org.metavisual.somethingsomething"])
             {
-                // Decode our metadata..
-                NSString* stringValue = (NSString*)metadataItem.value;
-                NSData* dataValue = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
-                id decodedJSON = [NSJSONSerialization JSONObjectWithData:dataValue options:kNilOptions error:nil];
+                // JSON
+//                // Decode our metadata..
+//                NSString* stringValue = (NSString*)metadataItem.value;
+//                NSData* dataValue = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
+//                id decodedJSON = [NSJSONSerialization JSONObjectWithData:dataValue options:kNilOptions error:nil];
+//                if(decodedJSON)
+//                    [metadataDictionary setObject:decodedJSON forKey:key];
+                
+//                // BSON:
+//                NSData* zipped = (NSData*)metadataItem.value;
+//                NSData* bsonData = [zipped gunzippedData];
+//                NSDictionary* bsonDict = [NSDictionary dictionaryWithBSON:bsonData];
+//                if(bsonDict)
+//                    [metadataDictionary setObject:bsonDict forKey:key];
+                
+                 // GZIP + JSON
+                NSData* zipped = (NSData*)metadataItem.value;
+                NSData* json = [zipped gunzippedData];
+                id decodedJSON = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:nil];
                 if(decodedJSON)
                     [metadataDictionary setObject:decodedJSON forKey:key];
+
+                
             }
             else
             {
