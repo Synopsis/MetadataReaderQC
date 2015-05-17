@@ -329,6 +329,8 @@
 
 #pragma mark - AVPlayerItemMetadataOutputPushDelegate
 
+const NSString* kSynopsislMetadataIdentifier = @"mdta/org.v002.synopsis.metadata";
+
 - (void)metadataOutput:(AVPlayerItemMetadataOutput *)output didOutputTimedMetadataGroups:(NSArray *)groups fromPlayerItemTrack:(AVPlayerItemTrack *)track
 {
     NSMutableDictionary* metadataDictionary = [NSMutableDictionary dictionary];
@@ -339,7 +341,7 @@
         {
             NSString* key = metadataItem.identifier;
             
-            if([key isEqualToString:@"mdta/org.metavisual.somethingsomething"])
+            if([key isEqualToString:kSynopsislMetadataIdentifier])
             {
                 // JSON
 //                // Decode our metadata..
