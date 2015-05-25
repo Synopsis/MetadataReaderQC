@@ -33,7 +33,8 @@
 @dynamic inputColorCorrection;
 
 @dynamic outputImage;
-@dynamic outputMetadata;
+@dynamic outputSummaryMetadata;
+@dynamic outputFrameMetadata;
 @dynamic outputPlayheadPosition;
 @dynamic outputDuration;
 @dynamic outputMovieTime;
@@ -81,8 +82,11 @@
     if([key isEqualToString:@"outputImage"])
         return  @{QCPortAttributeNameKey : @"Image"};
 
-    if([key isEqualToString:@"outputMetadata"])
-        return  @{QCPortAttributeNameKey : @"Metadata"};
+    if([key isEqualToString:@"outputSummaryMetadata"])
+        return  @{QCPortAttributeNameKey : @"Summary Metadata"};
+
+    if([key isEqualToString:@"outputFrameMetadata"])
+        return  @{QCPortAttributeNameKey : @"Frame Metadata"};
 
     if([key isEqualToString:@"outputPlayheadPosition"])
         return  @{QCPortAttributeNameKey : @"Current Playhead Position"};
@@ -101,19 +105,20 @@
 
 + (NSArray*) sortedPropertyPortKeys
 {
-	return @[@"inputPath",
-            @"inputPlayhead",
-            @"inputPlay",
-            @"inputRate",
-            @"inputLoopMode",
-            @"inputVolume",
-            @"inputColorCorrection",
-            @"outputImage",
-            @"outputMetadata",
-            @"outputPlayheadPosition",
-            @"outputMovieTime",
-            @"outputDuration",
-            @"outputMovieDidEnd"];
+    return @[@"inputPath",
+             @"inputPlayhead",
+             @"inputPlay",
+             @"inputRate",
+             @"inputLoopMode",
+             @"inputVolume",
+             @"inputColorCorrection",
+             @"outputImage",
+             @"outputSummaryMetadata",
+             @"outputFrameMetadata",
+             @"outputPlayheadPosition",
+             @"outputMovieTime",
+             @"outputDuration",
+             @"outputMovieDidEnd"];
 }
 
 + (QCPlugInExecutionMode)executionMode
@@ -234,6 +239,17 @@
         
         self.outputDuration = CMTimeGetSeconds([[player currentItem] duration]);
         
+        for(AVMetadataItem* metadataItem in player.currentItem.asset.metadata)
+        {
+            id synopsisSummaryMetadata = [self decodeSynopsisMetadata:metadataItem];
+            if(synopsisSummaryMetadata != nil)
+            {
+                self.outputSummaryMetadata = synopsisSummaryMetadata;
+                break;
+            }
+        }
+
+        
         [player play];
     }
     
@@ -293,7 +309,7 @@
     else
         self.outputMovieDidEnd = NO;
     
-    self.outputMetadata = self.latestMetadataDictionary;
+    self.outputFrameMetadata = self.latestMetadataDictionary;
     
 	return YES;
 }
@@ -329,7 +345,7 @@
 
 #pragma mark - AVPlayerItemMetadataOutputPushDelegate
 
-const NSString* kSynopsislMetadataIdentifier = @"mdta/org.v002.synopsis.metadata";
+const NSString* kSynopsislMetadataIdentifier = @"mdta/info.v002.synopsis.metadata";
 
 - (void)metadataOutput:(AVPlayerItemMetadataOutput *)output didOutputTimedMetadataGroups:(NSArray *)groups fromPlayerItemTrack:(AVPlayerItemTrack *)track
 {
@@ -341,31 +357,10 @@ const NSString* kSynopsislMetadataIdentifier = @"mdta/org.v002.synopsis.metadata
         {
             NSString* key = metadataItem.identifier;
             
-            if([key isEqualToString:kSynopsislMetadataIdentifier])
+            id decodedJSON = [self decodeSynopsisMetadata:metadataItem];
+            if(decodedJSON)
             {
-                // JSON
-//                // Decode our metadata..
-//                NSString* stringValue = (NSString*)metadataItem.value;
-//                NSData* dataValue = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
-//                id decodedJSON = [NSJSONSerialization JSONObjectWithData:dataValue options:kNilOptions error:nil];
-//                if(decodedJSON)
-//                    [metadataDictionary setObject:decodedJSON forKey:key];
-                
-//                // BSON:
-//                NSData* zipped = (NSData*)metadataItem.value;
-//                NSData* bsonData = [zipped gunzippedData];
-//                NSDictionary* bsonDict = [NSDictionary dictionaryWithBSON:bsonData];
-//                if(bsonDict)
-//                    [metadataDictionary setObject:bsonDict forKey:key];
-                
-                 // GZIP + JSON
-                NSData* zipped = (NSData*)metadataItem.value;
-                NSData* json = [zipped gunzippedData];
-                id decodedJSON = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:nil];
-                if(decodedJSON)
-                    [metadataDictionary setObject:decodedJSON forKey:key];
-
-                
+                [metadataDictionary setObject:decodedJSON forKey:key];
             }
             else
             {
@@ -381,4 +376,39 @@ const NSString* kSynopsislMetadataIdentifier = @"mdta/org.v002.synopsis.metadata
 }
 
 
+- (id) decodeSynopsisMetadata:(AVMetadataItem*)metadataItem
+{
+    NSString* key = metadataItem.identifier;
+    
+    if([key isEqualToString:kSynopsislMetadataIdentifier])
+    {
+        // JSON
+        //                // Decode our metadata..
+        //                NSString* stringValue = (NSString*)metadataItem.value;
+        //                NSData* dataValue = [stringValue dataUsingEncoding:NSUTF8StringEncoding];
+        //                id decodedJSON = [NSJSONSerialization JSONObjectWithData:dataValue options:kNilOptions error:nil];
+        //                if(decodedJSON)
+        //                    [metadataDictionary setObject:decodedJSON forKey:key];
+        
+        //                // BSON:
+        //                NSData* zipped = (NSData*)metadataItem.value;
+        //                NSData* bsonData = [zipped gunzippedData];
+        //                NSDictionary* bsonDict = [NSDictionary dictionaryWithBSON:bsonData];
+        //                if(bsonDict)
+        //                    [metadataDictionary setObject:bsonDict forKey:key];
+        
+        // GZIP + JSON
+        NSData* zipped = (NSData*)metadataItem.value;
+        NSData* json = [zipped gunzippedData];
+        id decodedJSON = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:nil];
+        if(decodedJSON)
+        {
+            return decodedJSON;
+        }
+
+        return nil;
+    }
+    
+    return nil;
+}
 @end

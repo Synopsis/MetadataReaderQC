@@ -33,7 +33,8 @@
 @property (assign) BOOL inputColorCorrection;
 
 @property (assign) id <QCPlugInOutputImageProvider> outputImage;
-@property (copy) NSDictionary* outputMetadata;
+@property (copy) NSDictionary* outputSummaryMetadata;
+@property (copy) NSDictionary* outputFrameMetadata;
 @property (assign) double outputPlayheadPosition;
 @property (assign) double outputDuration;
 @property (assign) double outputMovieTime;
