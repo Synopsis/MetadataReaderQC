@@ -345,7 +345,7 @@
 
 #pragma mark - AVPlayerItemMetadataOutputPushDelegate
 
-const NSString* kSynopsislMetadataIdentifier = @"mdta/info.v002.synopsis.metadata";
+const NSString* kSynopsislMetadataIdentifier = @"mdta/info.synopsis.metadata";
 
 - (void)metadataOutput:(AVPlayerItemMetadataOutput *)output didOutputTimedMetadataGroups:(NSArray *)groups fromPlayerItemTrack:(AVPlayerItemTrack *)track
 {
